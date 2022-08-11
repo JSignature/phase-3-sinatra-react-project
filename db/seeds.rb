@@ -1,26 +1,6 @@
-# Faker::Name.first_name       #=> "Kaci"
-# Faker::Name.last_name        #=> "Ernser"
-# Faker::Address.street_address #=> "282 Kevin Brook"
-# Faker::Address.city #=> "Imogeneborough"
-# Faker::Address.state_abbr #=> "AP"
-# Faker::Address.zip #=> "58517" or "66259-8212"
-# Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
-# Faker::Internet.safe_email #=> "christelle@example.org"
-# https://i.pravatar.cc/300?img=7 (rand(1..20))
-
-
-# Faker::Creature::Dog.name #=> "Spike"
-# Faker::Creature::Dog.breed #=> "Yorkshire Terrier"
-# Faker::Creature::Dog.size #=> "small"
-# Weight
-# Faker::Creature::Dog.gender #=> "female"
-# Faker::Creature::Dog.coat_length #=> "short"
-# Faker::LoremFlickr.image(size: "50x60", search_terms: ['sports'])
-
-
 puts "🌱 Seeding spices..."
 
-10.times do
+30.times do
     
     Client.create(
     client_first_name: Faker::Name.first_name,
@@ -31,7 +11,7 @@ puts "🌱 Seeding spices..."
     client_address_zip: Faker::Address.zip,
     client_phone: Faker::PhoneNumber.cell_phone,
     client_email: Faker::Internet.safe_email,
-    client_image: "https://i.pravatar.cc/300?img=#{rand(0..60)}"
+    client_image: "https://i.pravatar.cc/200?img=#{rand(0..60)}"
     )
   end
 
