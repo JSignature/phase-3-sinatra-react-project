@@ -13,10 +13,7 @@ class ApplicationController < Sinatra::Base
     dogs.to_json
   end
 
-  
-  
   post "/clients/add" do
-    
     new_client = Client.create(
     client_first_name: params[:client_first_name],
     client_last_name: params[:client_last_name],
@@ -30,8 +27,8 @@ class ApplicationController < Sinatra::Base
     )
     new_client.to_json
   end
+
   post "/dogs/add" do
-    
     new_dog = Dog.create(
       dog_name: params[:dog_name],
       dog_breed: params[:dog_breed],
@@ -43,19 +40,12 @@ class ApplicationController < Sinatra::Base
       dog_image:  "https://placedog.net/250/250/?id=#{rand(0..150)}"
     )
     new_dog.to_json
-  
   end
 
   get "/clients/view/:id" do
     clients = Client.find(params[:id])
-
-
     clients.to_json(include: {dogs: { only: [:dog_name, :dog_image, :dog_breed, :id]}})
-
   end
-
-
-
   get "/dogs/view/:id" do
     dog = Dog.find(params[:id])
     dog.to_json(include: {client: { only: [:client_first_name]}})
@@ -73,7 +63,6 @@ class ApplicationController < Sinatra::Base
       client_phone: params[:client_phone],
       client_email: params[:client_email]
     )
-
     client.to_json(include: {dogs: { only: [:dog_name, :dog_image]}})
   end
 
@@ -90,7 +79,6 @@ dog_image: params[:dog_image],
 client_id: params[:client_id],    
     )
     dog.to_json
-
   end
 
   delete "/clients/delete/:id" do
@@ -100,7 +88,6 @@ client_id: params[:client_id],
   end
 
   delete "/dogs/delete/:id" do
-    
     dog_to_delete = Dog.find(params[:id])
     dog_to_delete.destroy
     dog_to_delete.to_json

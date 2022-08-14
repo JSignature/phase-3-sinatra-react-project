@@ -1,6 +1,6 @@
 puts "🌱 Seeding spices..."
 
-30.times do
+10.times do
     
     Client.create(
     client_first_name: Faker::Name.first_name,
