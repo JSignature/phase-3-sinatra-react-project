@@ -1,3 +1,7 @@
+# Link To React Front End
+
+https://github.com/JSignature/phase-3-sinatra-react-project-client
+
 # Phase 3 Project Guidelines
 
 ## Learning Goals
@@ -89,9 +93,9 @@ Your React app should make fetch requests to your Sinatra backend! Here's an
 example:
 
 ```js
-fetch("http://localhost:9292/test")
-  .then((r) => r.json())
-  .then((data) => console.log(data));
+fetch('http://localhost:9292/test')
+  .then(r => r.json())
+  .then(data => console.log(data))
 ```
 
 ## Project Tips
