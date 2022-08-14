@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
       dog_gender: params[:dog_gender],
       dog_coat_length: params[:dog_coat_length],
       client_id: params[:client_id],
-      dog_image: Faker::LoremFlickr.image(size: "300x300", search_terms: ['dog'])
+      dog_image:  "https://placedog.net/250/250/?id=#{rand(0..150)}"
     )
     new_dog.to_json
   
@@ -55,12 +55,12 @@ class ApplicationController < Sinatra::Base
   get "/clients/view/:id" do
     clients = Client.find(params[:id])
 
-    clients.to_json(include: {dogs: { only: [:dog_name]}})
+    clients.to_json(include: {dogs: { only: [:dog_name, :dog_image, :dog_breed, :id]}})
   end
 
   get "/dogs/view/:id" do
     dog = Dog.find(params[:id])
-    dog.to_json
+    dog.to_json(include: {client: { only: [:client_first_name]}})
   end
 
   patch "/clients/edit/:id" do

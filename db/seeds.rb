@@ -43,7 +43,7 @@ puts "🌱 Seeding spices..."
      dog_weight: (rand(1..90)),
      dog_gender: Faker::Creature::Dog.gender,
      dog_coat_length: Faker::Creature::Dog.coat_length,
-     dog_image: Faker::LoremFlickr.image(size: "300x300", search_terms: ['dog']),
+     dog_image: "https://placedog.net/250/250/?id=#{rand(0..150)}",
     #  Used the random with the range of clients
      client_id: (rand(1..10))
     )
